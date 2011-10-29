@@ -1,4 +1,2 @@
 require "stack_qna/version"
-
-module StackQnA
-end
+require "stack_qna/client"
