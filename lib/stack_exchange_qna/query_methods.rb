@@ -7,7 +7,7 @@ class StackExchangeQnA::QueryMethods
   end
 
   def where(hash)
-    @options[:where] = hash
+    @options.merge!(hash)
     self
   end
 
@@ -22,28 +22,12 @@ class StackExchangeQnA::QueryMethods
   end
 
   def includes(*args)
-    @options[:includes] = args.flatten
+    @options.merge!(Hash[args.flatten.map{ |a| [a, true] }])
     self
   end
 
   def query_string
-    params = []
-
-    @options[:where].each do |param, value|
-      params << "#{param}=#{value}"
-    end
-
-    @options.each do |param, value|
-      next if [:includes, :where].include?(param)
-
-      params << "#{param}=#{value}"
-    end
-
-    @options[:includes].each do |association|
-      params << "#{association}=true"
-    end
-
-    params.join("&")
+    @options.map{ |param, value| "#{param}=#{value}" }.join("&")
   end
 
   def total
