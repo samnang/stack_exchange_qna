@@ -1,5 +1,8 @@
-require File.join(File.dirname(__FILE__), '../lib/stack_qna')
 require 'rspec'
+require 'pry'
+
+require File.join(File.dirname(__FILE__), '../lib/stack_exchange_qna')
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each{ |f| require f }
 
 RSpec.configure do |config|
   config.color_enabled = true
