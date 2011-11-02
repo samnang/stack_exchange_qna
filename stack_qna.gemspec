@@ -4,8 +4,8 @@ require File.expand_path('../lib/stack_exchange_qna/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Samnang Chhun"]
   gem.email         = ["samnang.chhun@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Stack Exchange Question and Answers API wrapper client. It helps you to simplify querying data from stack exchange sites(stackoverflow.com, superuser.com, etc.) via object oriented way.}
+  gem.summary       = %q{Stack Exchange Question and Answers API wrapper client}
   gem.homepage      = ""
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
