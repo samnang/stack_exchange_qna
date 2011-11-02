@@ -1,55 +1,66 @@
-class StackExchangeQnA::Base < Hashie::Mash
-  class << self
-    def all
-      response = make_request(resource_url)
-      collection = parse_response_collection(response)
+module StackExchangeQnA
+  class Base < Hashie::Mash
 
-      StackExchangeQnA::QueryMethods.new(self, :collection => collection,
-                                               :total => response["total"],
-                                               :page => response["page"],
-                                               :pagesize => response["pagesize"])
-    end
+    class << self
+      def all(args={})
+        response = make_request("#{resource_url}?#{query_string(args)}")
+        collection = parse_response_collection(response)
 
-    def find(id)
-      response = make_request(resource_url(id))
+        QueryMethods.new(self, :collection => collection,
+                               :total => response["total"],
+                               :page => response["page"],
+                               :pagesize => response["pagesize"])
+      end
 
-      parse_response_collection(response).first
-    end
+      def find(id)
+        response = make_request(resource_url(id))
 
-    def self.where(hash)
-      QueryMethods.new(self).where(hash)
-    end
+        parse_response_collection(response).first
+      end
 
-    def self.pagesize(number)
-      QueryMethods.new(self).pagesize(number)
-    end
+      def where(hash)
+        QueryMethods.new(self).where(hash)
+      end
 
-    def self.page(number)
-      QueryMethods.new(self).page(number)
-    end
+      def pagesize(number)
+        QueryMethods.new(self).pagesize(number)
+      end
 
-    def self.includes(*args)
-      QueryMethods.new(self).includes(*args)
-    end
+      def page(number)
+        QueryMethods.new(self).page(number)
+      end
 
-    private
+      def includes(*args)
+        QueryMethods.new(self).includes(*args)
+      end
 
-    def make_request(url)
-      HTTParty.get(url)
-    end
+      def order(option)
+        QueryMethods.new(self).order(option)
+      end
 
-    def resource_url(id=nil)
-      client = StackExchangeQnA.client
+      private
 
-      "http://#{client.site}/#{StackExchangeQnA::Client::API_VERSION}/#{resource_name}/#{id}"
-    end
+      def make_request(url)
+        HTTParty.get(url)
+      end
 
-    def resource_name
-      "#{self.name.split("::").last.downcase}s"
-    end
+      def resource_url(id=nil)
+        client = StackExchangeQnA.client
 
-    def parse_response_collection(response)
-      response[resource_name].map{ |r| self.new(r) }
+        "http://#{client.site}/#{StackExchangeQnA::Client::API_VERSION}/#{resource_name}/#{id}"
+      end
+
+      def resource_name
+        "#{self.name.split("::").last.downcase}s"
+      end
+
+      def query_string(params)
+        params.map{ |param, value| "#{param}=#{value}" }.join("&")
+      end
+
+      def parse_response_collection(response)
+        response[resource_name].map{ |r| self.new(r) }
+      end
     end
   end
 end

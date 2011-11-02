@@ -1,40 +1,53 @@
 class StackExchangeQnA::QueryMethods
   include Enumerable
 
-  def initialize(model, options={})
+  attr_reader :query_options
+
+  def initialize(model, query_options={})
     @model = model
-    @options = options
+    @query_options = query_options
   end
 
   def where(hash)
-    @options.merge!(hash)
+    @query_options.merge!(hash)
     self
   end
 
   def pagesize(number)
-    @options[:pagesize] = number
+    @query_options[:pagesize] = number
     self
   end
 
   def page(number)
-    @options[:page] = number
+    @query_options[:page] = number
     self
   end
 
   def includes(*args)
-    @options.merge!(Hash[args.flatten.map{ |a| [a, true] }])
+    @query_options.merge!(Hash[args.flatten.map{ |a| [a, true] }])
     self
   end
 
-  def query_string
-    @options.map{ |param, value| "#{param}=#{value}" }.join("&")
+  def order(option)
+    @query_options[:sort] = option
+    @query_options[:sort], @query_options[:order] = option.first if option.is_a? Hash
+
+    self
   end
 
   def total
-    @options[:total]
+    @query_options[:total] || load_data.total
   end
 
   def each(&block)
-    @options[:collection].each{ |resource| block.call(resource) }
+    resources = @query_options[:collection] || load_data
+
+    resources.each{ |resource| block.call(resource) }
+  end
+
+  private
+
+  def load_data
+    @model.all(@query_options)
   end
 end
