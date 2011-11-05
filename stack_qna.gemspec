@@ -23,4 +23,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "rspec", "~> 2.7"
   gem.add_development_dependency "guard-rspec", "~> 0.5"
   gem.add_development_dependency "pry", "~> 0.9.7"
+  gem.add_development_dependency "vcr", "~> 2.0.0.beta1"
+  gem.add_development_dependency "fakeweb", "~> 1.3.0"
 end

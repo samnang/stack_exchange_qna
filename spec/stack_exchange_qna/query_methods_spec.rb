@@ -14,22 +14,22 @@ module StackExchangeQnA
                                           :answers => true})
     end
 
-    it "should be able to get list objects with including its assocation" do
+    it "should be able to get list objects with including its assocation", :vcr => "questions/ruby_with_answers" do
       questions = Question.where(:tagged => "ruby").includes(:answers)
 
       questions.first.tags.should include("ruby")
-      questions.first.answers.count.should > 0
+      questions.first.answers.count.should_not be_nil
     end
 
     describe "#order" do
-      it "sort by desc by default" do
+      it "sort by desc by default", :vcr => "questions/all_ordered_by_votes_desc" do
         result = Question.order(:votes)
         questions = result.to_a #TODO: users don't have to convert into array
 
         questions.first.score.should > questions.last.score
       end
 
-      it "sort by asc" do
+      it "sort by asc", :vcr => "questions/all_ordered_by_votes_asc" do
         result = Question.order(:votes => :asc)
         questions = result.to_a
 

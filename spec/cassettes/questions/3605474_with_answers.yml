@@ -1,0 +1,96 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.stackoverflow.com:80/1.1/questions/3605474?key=Zpl7IOVuaUaMAvnNcftixw
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - application/json; charset=utf-8
+      content-encoding:
+      - gzip
+      x-aspnetmvc-version:
+      - '3.0'
+      x-ratelimit-max:
+      - '10000'
+      x-ratelimit-current:
+      - '9993'
+      x-aspnet-version:
+      - 4.0.30319
+      date:
+      - Sat, 05 Nov 2011 17:30:44 GMT
+      content-length:
+      - '596'
+    body: !binary |-
+      H4sIAAAAAAAEAOy9B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+      kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+      AWz2zkrayZ4hgKrIHz9+fB8/In7xb5yk6Udt1WblR4/S3RH/ucou8vCvpvgB
+      Prm3Ix/9onXetEW1bOiz7+GTNP3F8gPAsgvvc/6oXk+ut6vldp0VZfPRqPNN
+      8EG1ypfbTbWup/lH5uPv2wYfZcvmKq9//2m1XrbUyb73zXSar9p89vtrk2IG
+      hD/duX9/96FrdZ5dVnXR5hbCrvvOjOr3b4tFXhbL/Pdf16DKR3fteO8C4P6D
+      /bumicPdvT6tFot82TYbXjdNYq8L/pve1haxl+2oqZ37urpa5jV9YSeJPls3
+      lkj3H+zs2Mbmq/Z6hSn/qM4viqbN63wWzNOsaFZldv37L7MFN3udLZbZ8iKc
+      3Hy1bjPgRS0O7rlpoO/yBfHC7z/PmjnePvj0Xr63P324ez49353O7k0PHjzM
+      s0/3sv2d3Xuf3nes8EvcoKZ1zrB//1nWMrvuHdzb2z24/+mea1NmTfv7Z9O2
+      uCzaa9vw3s6DvXt7O/v3XcP16ve/rDy2uOe+mhH1wi8dsT66LPIrx0sHn7pv
+      mmlV5yEkzPp6CUwwISD9eVY2uWvQFm3J1HwFQfm4SSENqUhDuqqrn86nbZNe
+      Fe08ndCE00cY2zRv0mw5u1vV6bSa5WnT0l9ZPfs9lGq/BD++/xsnvyT5fwIA
+      AP//tT1Keu4DAAA=
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.stackoverflow.com:80/1.1//questions/3605474/answers?key=Zpl7IOVuaUaMAvnNcftixw
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      cache-control:
+      - private
+      content-type:
+      - application/json; charset=utf-8
+      content-encoding:
+      - gzip
+      x-aspnetmvc-version:
+      - '3.0'
+      x-ratelimit-max:
+      - '10000'
+      x-ratelimit-current:
+      - '9987'
+      x-aspnet-version:
+      - 4.0.30319
+      date:
+      - Sat, 05 Nov 2011 17:30:45 GMT
+      content-length:
+      - '815'
+    body: !binary |-
+      H4sIAAAAAAAEAOy9B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+      kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+      AWz2zkrayZ4hgKrIHz9+fB8/In7xb5yk6Udt1WblR4/S/RH/ucoucvpr1/3V
+      FD/AJ/d25KNs2VzldUOffA9/p+kvlh/2q9+/mNGXn+7t7+zuPRy5L6fTfNXm
+      +O48K5vc+0Zem1aLRb5sm99/XQOfj+5qT3cV1F3T4CP36i9a501bVEvp896n
+      O/f3H+y7r6urZV7TFxZF+mzdGBT39u7v7e7a1ua79nqF8X5U5xdF0+Y1oey3
+      mRXNqsyuf/9ltuBmT7NlkZfp75XPqzxoWOerdZsBO9Bzf3fH/zJfZEX5+8+z
+      Zg4Y5+f5dDI9//TTbGfn3sOH2c49wmzn04fnn+5O9x7u7H1k3vwlbmzTOmfg
+      v/8sa3nG7u082Lu3t7N/37Ups6b9/bNpW1wW7fWmhuvV739ZtTnNwXrZgjTu
+      qxkRMfzSDeSjyyK/in3eTKs6D+Fg9tZL4IFZibBBW7QlU/QVkab5uEmrVb5M
+      m2pdT/N0VVc/nU/bJr0q2nk6oVmnjzCyad6k2XJ2t6rTaTXL06alv7J69nso
+      zQzF4lx679Pd3fs7974JLlVQ3ziX3tvbv+8Q/JpMWlcXeT1bZdO3wyx6b++B
+      m64eiz48OHhAnJNNHuycf5p/+unk/s753vR+vvuQXpt++uBWLLp3QJ3cJ8a+
+      iUUjDbss6nHbB7Go99H/a1l0b8+pqQ9kUQL1jbPo3v2dh/cffCiPnszrokm/
+      vS6z5QY9GirskEf37u0+2Jt8+um9ndn003u72e69/enDSTbbI/W6l917eHse
+      vUev3opHw4ZdHvVm7YN41IPz/1Ie3bl/fzdu7Nt6/V4sypC+cRb99OGDBx/M
+      oU+zyzx9kV8tNnHo/t7+BjWaHexOs/x8J9+fnE/pf7v3zg8+pU/2Jw9m9z+9
+      P7s1i+4+vH//09uwaKdhl0U9Cn4Qi3pwfq5YFD++/xsnvyT5fwIAAP//lF+Z
+      H9kKAAA=
+    http_version: '1.1'
