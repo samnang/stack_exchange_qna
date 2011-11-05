@@ -14,5 +14,12 @@ module StackExchangeQnA
 
       question.title.should match /Rails's open source projects/
     end
+
+    it "loads answers as its association" do
+      question = Question.find(3605474)
+
+      question.should respond_to(:answers)
+      question.answers.should_not be_nil
+    end
   end
 end

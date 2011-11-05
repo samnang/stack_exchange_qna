@@ -11,12 +11,12 @@ module StackExchangeQnA
 
     it "should be able to configure client via StackExchangeQnA.configure" do
       StackExchangeQnA.configure do |config|
-        config.api_key = "fake_key"
+        config.api_key = "Zpl7IOVuaUaMAvnNcftixw"
         config.site = "api.stackoverflow.com"
       end
 
       client = StackExchangeQnA.client
-      client.api_key.should == "fake_key"
+      client.api_key.should == "Zpl7IOVuaUaMAvnNcftixw"
       client.site.should == "api.stackoverflow.com"
     end
   end

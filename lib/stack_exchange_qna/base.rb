@@ -1,9 +1,8 @@
 module StackExchangeQnA
   class Base < Hashie::Mash
-
     class << self
-      def all(args={})
-        response = make_request("#{resource_url}?#{query_string(args)}")
+      def all(options={})
+        response = make_request(resource_name, options)
         collection = parse_response_collection(response)
 
         QueryMethods.new(self, :collection => collection,
@@ -13,7 +12,7 @@ module StackExchangeQnA
       end
 
       def find(id)
-        response = make_request(resource_url(id))
+        response = make_request("#{resource_name}/#{id}")
 
         parse_response_collection(response).first
       end
@@ -38,21 +37,22 @@ module StackExchangeQnA
         QueryMethods.new(self).order(option)
       end
 
-      private
-
-      def make_request(url)
-        HTTParty.get(url)
-      end
-
-      def resource_url(id=nil)
-        client = StackExchangeQnA.client
-
-        "http://#{client.site}/#{StackExchangeQnA::Client::API_VERSION}/#{resource_name}/#{id}"
-      end
-
       def resource_name
-        "#{self.name.split("::").last.downcase}s"
+        single_resource_name.pluralize
       end
+
+      def single_resource_name
+        self.name.demodulize.underscore
+      end
+
+      def make_request(end_point, options={})
+        client = StackExchangeQnA.client
+        options.merge!(:key => client.api_key)
+
+        HTTParty.get("http://#{client.site}/#{StackExchangeQnA::Client::API_VERSION}/#{end_point}?#{query_string(options)}")
+      end
+
+      private
 
       def query_string(params)
         params.map{ |param, value| "#{param}=#{value}" }.join("&")
@@ -61,6 +61,24 @@ module StackExchangeQnA
       def parse_response_collection(response)
         response[resource_name].map{ |r| self.new(r) }
       end
+    end
+
+    def method_missing(method_name, *args, &block)
+      return super unless respond_to? association_url(method_name)
+
+      association_class = "StackExchangeQnA::#{method_name.to_s.classify}".constantize
+      response = self.class.make_request(self.send(association_url(method_name)))
+      self[method_name] = response[method_name.to_s].map{ |r| association_class.new(r) }
+    end
+
+    def respond_to?(method_name)
+      return true if self.key? association_url(method_name)
+
+      super
+    end
+
+    def association_url(method_name)
+      "#{self.class.single_resource_name}_#{method_name}_url"
     end
   end
 end

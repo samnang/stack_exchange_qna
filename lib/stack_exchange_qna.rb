@@ -1,5 +1,6 @@
 require 'httparty'
 require 'hashie'
+require 'active_support/inflector'
 
 require "stack_exchange_qna/version"
 require "stack_exchange_qna/client"

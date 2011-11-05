@@ -1,4 +1,4 @@
 StackExchangeQnA.configure do |config|
-  config.api_key = "fake_key"
+  config.api_key = "Zpl7IOVuaUaMAvnNcftixw"
   config.site = "api.stackoverflow.com"
 end
