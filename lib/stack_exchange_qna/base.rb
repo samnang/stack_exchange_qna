@@ -49,14 +49,10 @@ module StackExchangeQnA
         client = StackExchangeQnA.client
         options.merge!(:key => client.api_key)
 
-        HTTParty.get("http://#{client.site}/#{StackExchangeQnA::Client::API_VERSION}/#{end_point}?#{query_string(options)}")
+        HTTParty.get("http://#{client.site}/#{StackExchangeQnA::Client::API_VERSION}/#{end_point}", :query => options)
       end
 
       private
-
-      def query_string(params)
-        params.map{ |param, value| "#{param}=#{value}" }.join("&")
-      end
 
       def parse_response_collection(response)
         response[resource_name].map{ |r| self.new(r) }
