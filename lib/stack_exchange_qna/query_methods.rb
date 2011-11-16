@@ -13,12 +13,16 @@ class StackExchangeQnA::QueryMethods
     self
   end
 
-  def pagesize(number)
+  def pagesize(number=nil)
+    return collection.pagesize if number.nil?
+
     @query_options[:pagesize] = number
     self
   end
 
-  def page(number)
+  def page(number=nil)
+    return collection.page if number.nil?
+
     @query_options[:page] = number
     self
   end
@@ -36,18 +40,16 @@ class StackExchangeQnA::QueryMethods
   end
 
   def total
-    @query_options[:total] || load_data.total
+    collection.total
   end
 
-  def each(&block)
-    resources = @query_options[:collection] || load_data
-
-    resources.each{ |resource| block.call(resource) }
+  def each
+    collection.each{ |resource| yield resource }
   end
 
   private
 
-  def load_data
-    @model.all(@query_options)
+  def collection
+    @collection ||= @model.all(@query_options)
   end
 end

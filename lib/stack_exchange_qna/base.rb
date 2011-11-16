@@ -5,10 +5,10 @@ module StackExchangeQnA
         response = make_request(resource_name, options)
         collection = parse_response_collection(response)
 
-        QueryMethods.new(self, :collection => collection,
-                               :total => response["total"],
-                               :page => response["page"],
-                               :pagesize => response["pagesize"])
+        collection.extend(ResponseStats)
+        collection.response = response
+
+        collection
       end
 
       def find(id)

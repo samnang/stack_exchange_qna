@@ -4,9 +4,9 @@ module StackExchangeQnA
   describe QueryMethods do
     it "should be able to call chainable" do
       query = Question.where(:tagged => "Ruby")
-                      .page(2)
-                      .pagesize(42)
-                      .includes(:answers)
+      .page(2)
+      .pagesize(42)
+      .includes(:answers)
 
       query.query_options.should include({:tagged => "Ruby",
                                           :page => 2,
@@ -34,6 +34,16 @@ module StackExchangeQnA
         questions = result.to_a
 
         questions.first.score.should < questions.last.score
+      end
+    end
+
+    describe "#total, #page, #pagesize" do
+      it "should be able return reponse stats of the query", :vcr => "questions/ruby_with_answers" do
+        questions = Question.where(:tagged => "ruby").includes(:answers)
+
+        questions.total.should == 33840
+        questions.page.should == 1
+        questions.pagesize.should == 30
       end
     end
   end
