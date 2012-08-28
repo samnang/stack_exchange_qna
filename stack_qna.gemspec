@@ -15,14 +15,14 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = StackExchangeQnA::VERSION
 
-  gem.add_dependency "httparty", "~> 0.8.1"
+  gem.add_dependency "httparty", "~> 0.8.3"
   gem.add_dependency "hashie", "~> 1.2.0"
-  gem.add_dependency "activesupport", "~> 3.0.0"
+  gem.add_dependency "activesupport", "~> 3.2.7"
   gem.add_dependency "i18n"
 
-  gem.add_development_dependency "rspec", "~> 2.7"
-  gem.add_development_dependency "guard-rspec", "~> 0.5"
-  gem.add_development_dependency "pry", "~> 0.9.7"
-  gem.add_development_dependency "vcr", "~> 2.0.0.beta1"
+  gem.add_development_dependency "rspec", "~> 2.11"
+  gem.add_development_dependency "guard-rspec", "~> 1.2.1"
+  gem.add_development_dependency "pry", "~> 0.9.10"
+  gem.add_development_dependency "vcr", "~> 2.2.4"
   gem.add_development_dependency "fakeweb", "~> 1.3.0"
 end

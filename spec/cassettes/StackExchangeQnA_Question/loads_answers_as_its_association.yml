@@ -1,0 +1,131 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.stackoverflow.com/1.1/questions/3605474?key=Zpl7IOVuaUaMAvnNcftixw
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "Y2FjaGUtY29udHJvbA==":
+      - !binary |-
+        cHJpdmF0ZQ==
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "Y29udGVudC1lbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "eC1hc3BuZXRtdmMtdmVyc2lvbg==":
+      - !binary |-
+        NC4w
+      !binary "eC1yYXRlbGltaXQtbWF4":
+      - !binary |-
+        MTAwMDA=
+      !binary "eC1yYXRlbGltaXQtY3VycmVudA==":
+      - !binary |-
+        OTk5Mw==
+      !binary "eC1hc3BuZXQtdmVyc2lvbg==":
+      - !binary |-
+        NC4wLjMwMzE5
+      !binary "ZGF0ZQ==":
+      - !binary |-
+        VHVlLCAyOCBBdWcgMjAxMiAxOTowODozMCBHTVQ=
+      !binary "Y29ubmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
+      !binary "Y29udGVudC1sZW5ndGg=":
+      - !binary |-
+        NDU1
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAH1Ty47bMAy8B9h/EHTpJUH8ttNL/6E9FguDKzGJCltyJTpB
+        GuTfazmJZS+CPQmaGVLkkLq+rRjjZAga/p3F6/HawQGXN6f+eSSN7tDfHh0p
+        o92A/fYIY9f74ZPBYYaPkO0/LhujNxZU4/j6E7MATId640xvBfIn/D4JOGh3
+        RlsL02saHslmjBDYEcr6IVHSF1xEeR7vgmoPJ2MV4ZQhDtyzq5pUi43SWPfW
+        u8K3U79bnzArs+1Twl+EC9O2qMl9Ef6UvAq/1/9V9EPxKnjqetAF2pw12oG4
+        zozu3WRSXkbR+jNFl86PnFs8KEdoUS7mJJXrGrjUGtpR9gtaDfqwHC52PYGv
+        yxsd7co5ie2wDPUR3NGHV0WKSSZ28V7sYyFTUZU7hCKBLIrTIg+7cAtdCYtj
+        8loCjfuaVGkSV3mRBE0DjmoQpE6KLpMwjcokTaIsD8K+q09mthdpoORg35IM
+        bvGTwvOEJ1kVGCeMxWUmP/Ze+0r8RLz3e2gcBgEpakY7f/qf8s0x/x3Y/Tuw
+        zpo/KMixs6Ij+xgmPkC+N4GOgZZbY5kwEpmj4QZW/ni4dvPH+9vqtvoPTJ5/
+        0O8DAAA=
+    http_version: !binary |-
+      MS4x
+  recorded_at: Tue, 28 Aug 2012 19:08:31 GMT
+- request:
+    method: get
+    uri: http://api.stackoverflow.com/1.1//questions/3605474/answers?key=Zpl7IOVuaUaMAvnNcftixw
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "Y2FjaGUtY29udHJvbA==":
+      - !binary |-
+        cHJpdmF0ZQ==
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "Y29udGVudC1lbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "eC1hc3BuZXRtdmMtdmVyc2lvbg==":
+      - !binary |-
+        NC4w
+      !binary "eC1yYXRlbGltaXQtbWF4":
+      - !binary |-
+        MTAwMDA=
+      !binary "eC1yYXRlbGltaXQtY3VycmVudA==":
+      - !binary |-
+        OTk5Mw==
+      !binary "eC1hc3BuZXQtdmVyc2lvbg==":
+      - !binary |-
+        NC4wLjMwMzE5
+      !binary "c2V0LWNvb2tpZQ==":
+      - !binary |-
+        LkFTUFhCcm93c2VyT3ZlcnJpZGU9OyBleHBpcmVzPU1vbiwgMjctQXVnLTIw
+        MTIgMTk6MDg6MzIgR01UOyBwYXRoPS8=
+      !binary "ZGF0ZQ==":
+      - !binary |-
+        VHVlLCAyOCBBdWcgMjAxMiAxOTowODozMiBHTVQ=
+      !binary "Y29ubmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
+      !binary "Y29udGVudC1sZW5ndGg=":
+      - !binary |-
+        NjMz
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEANWV32vbMBDH3wv9H0Re9hKIfliytZc9rA+DwR72OoaR5XOj
+        zbE8SU7oSv/3SWlSN2naZdSwDQzi7ns6ne4+yLeXFwjNgg2qnb1F2Xxr9uoa
+        okVGy5ufycPwvUt1fgPOR8+XZCN0e788SKWpoyhohgmV81HUGvoASWtU62F+
+        vE3b1Qq64MvBpXpmi91Ji12qxT5gNm79MYAPxnb3ZzKBeZZno2w3HbgoPJQY
+        fYPfl0gpp4TMj7Vw06f7zhxcGx/AxZIfx9TG9626KTu12oZdqc5Aiz7C0sJB
+        oIN+CCpVl/opmXwswkqZtlwqv0w5mgZ0pRshFMZMSoVZrAwL2QiiqcR0tt95
+        N95NO9gmL2sVthNjOKeM4oyPMa3yoVQ6mLUJNy8FDn25tgHiDIYupNaMUh2b
+        eCjiUVwb2Jzye20dHOZJ0xu6VEeaygkMggnttqOfY2v8G49sDx3ydnAaUO/s
+        N9DBo40JS1TFqUdXupkGj1RXL6xD2taAfIiWcvW7Xc/2HTtNKROEcMymoHSX
+        anJKGc04ey2kzl6Dq3ulvz+PKOePinqCqCyKPJKjqhw3AoSoOG6o5kAkzakW
+        +VmI0oLRnEewf4foicBjRPFEiOL/AFFKyVSIxlTTP6QcS56/ltH3S2c8+jC0
+        qnvhHaXkeUYpIzmthGC41oIRRVimZaVqGp9Xqpg8n1EWt57F6GHgMaNkIkbJ
+        P88o5pyc/tkHN/wRottMkyMqZJ6/mtArtQb0CTarlwjNClY8j6gqiFbQYMiq
+        RsePsKYQ0ZNVec0Fr89GlEjOxTmIHgUeI5pNhGj29xFNy9fLi7uLXz01vavZ
+        CgAA
+    http_version: !binary |-
+      MS4x
+  recorded_at: Tue, 28 Aug 2012 19:08:32 GMT
+recorded_with: VCR 2.2.4

@@ -1,6 +1,4 @@
 class StackExchangeQnA::QueryMethods
-  include Enumerable
-
   attr_reader :query_options
 
   def initialize(model, query_options={})
@@ -8,46 +6,45 @@ class StackExchangeQnA::QueryMethods
     @query_options = query_options
   end
 
-  def where(hash)
-    @query_options.merge!(hash)
-    self
-  end
-
-  def pagesize(number=nil)
-    return collection.pagesize if number.nil?
-
-    @query_options[:pagesize] = number
-    self
-  end
-
-  def page(number=nil)
-    return collection.page if number.nil?
-
-    @query_options[:page] = number
-    self
-  end
-
-  def includes(*args)
-    @query_options.merge!(Hash[args.flatten.map{ |a| [a, true] }])
-    self
-  end
-
-  def order(option)
-    @query_options[:sort] = option
-    @query_options[:sort], @query_options[:order] = option.first if option.is_a? Hash
-
-    self
+  def where(arg)
+    new_query(arg)
   end
 
   def total
     collection.total
   end
 
-  def each
-    collection.each{ |resource| yield resource }
+  def pagesize(number=nil)
+    return collection.pagesize if number.nil?
+
+    new_query(:pagesize => number)
+  end
+
+  def page(number=nil)
+    return collection.page if number.nil?
+
+    new_query(:page => number)
+  end
+
+  def includes(*args)
+    new_query(Hash[args.flatten.map{ |a| [a, true] }])
+  end
+
+  def order(option)
+    option.is_a?(Hash) ? new_query(Hash[[:sort, :order].zip(option.first)]) : new_query(:sort => option)
+  end
+
+  def method_missing(sym, *args, &block)
+    return collection.send(sym, *args, &block) if collection.respond_to?(sym)
+
+    super
   end
 
   private
+
+  def new_query(option)
+    self.class.new(@model, @query_options.merge(option))
+  end
 
   def collection
     @collection ||= @model.all(@query_options)

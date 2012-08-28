@@ -23,15 +23,13 @@ module StackExchangeQnA
 
     describe "#order" do
       it "sort by desc by default", :vcr => "questions/all_ordered_by_votes_desc" do
-        result = Question.order(:votes)
-        questions = result.to_a #TODO: users don't have to convert into array
+        questions = Question.order(:votes)
 
         questions.first.score.should > questions.last.score
       end
 
       it "sort by asc", :vcr => "questions/all_ordered_by_votes_asc" do
-        result = Question.order(:votes => :asc)
-        questions = result.to_a
+        questions = Question.order(:votes => :asc)
 
         questions.first.score.should < questions.last.score
       end
@@ -41,7 +39,7 @@ module StackExchangeQnA
       it "should be able return reponse stats of the query", :vcr => "questions/ruby_with_answers" do
         questions = Question.where(:tagged => "ruby").includes(:answers)
 
-        questions.total.should == 33840
+        questions.total.should > 0
         questions.page.should == 1
         questions.pagesize.should == 30
       end

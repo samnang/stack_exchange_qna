@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.stackoverflow.com/1.1/answers/7721751?key=Zpl7IOVuaUaMAvnNcftixw
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "Y2FjaGUtY29udHJvbA==":
+      - !binary |-
+        cHJpdmF0ZQ==
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "Y29udGVudC1lbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "eC1hc3BuZXRtdmMtdmVyc2lvbg==":
+      - !binary |-
+        NC4w
+      !binary "eC1yYXRlbGltaXQtbWF4":
+      - !binary |-
+        MTAwMDA=
+      !binary "eC1yYXRlbGltaXQtY3VycmVudA==":
+      - !binary |-
+        OTk5OA==
+      !binary "eC1hc3BuZXQtdmVyc2lvbg==":
+      - !binary |-
+        NC4wLjMwMzE5
+      !binary "c2V0LWNvb2tpZQ==":
+      - !binary |-
+        LkFTUFhCcm93c2VyT3ZlcnJpZGU9OyBleHBpcmVzPU1vbiwgMjctQXVnLTIw
+        MTIgMTk6MDg6MTggR01UOyBwYXRoPS8=
+      !binary "ZGF0ZQ==":
+      - !binary |-
+        VHVlLCAyOCBBdWcgMjAxMiAxOTowODoxNyBHTVQ=
+      !binary "Y29ubmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
+      !binary "Y29udGVudC1sZW5ndGg=":
+      - !binary |-
+        NDA2
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAH1Swa6bMBC8R3r/sOIcKRBCSHrpudfXY1Whjb0JrsDm2eug
+        9Cn/XhuSAO/Qk7U7s+vxjD/fVgAJG8Ym+QbZeig7vNCycupv7OTp2ELterIu
+        dH7FGuBzPF5QpWQAy3KblcW4ZgSFoI4pYmw9rb9OCdO2pNlV3kY5yeZx0eax
+        afMkJNPohyfHyujpym2xn2DTa7IBeCkMPe+eCvOiTNP1V4hvXXxtYumiHJMN
+        guccqVzX4K3S2A60n9hq1JcFx1LnGaOuaGR6LOcgtaiaqkZXx/HDPqftThyz
+        szhnQubiUB4J91vcpVm+Lyh5Tt6nVwlLw/JKIg9R5dkhz7KsyCdOg44rkoqX
+        pLKciRlJKFhdFd/+R/RddTVMISKvOXB2EySDx0twsjS5Kupf/eMsGCeMpeWi
+        mK7XUUhMLeZzxsbNvgkrbgbLf2h496fbGmrTgzTkwGgClBLYAGowpz8kGBBa
+        4tpI6BXXEH+fc5FxRavw1IQxFbg+RAxBTkffH17f4/H7bXVf/QOMuGNJIAMA
+        AA==
+    http_version: !binary |-
+      MS4x
+  recorded_at: Tue, 28 Aug 2012 19:08:18 GMT
+recorded_with: VCR 2.2.4

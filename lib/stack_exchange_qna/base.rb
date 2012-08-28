@@ -2,7 +2,7 @@ module StackExchangeQnA
   class Base < Hashie::Mash
     class << self
       def all(options={})
-        response = make_request(resource_name, options)
+        response = Request.get(resource_name, options)
         collection = parse_response_collection(response)
 
         collection.extend(ResponseStats)
@@ -12,7 +12,7 @@ module StackExchangeQnA
       end
 
       def find(id)
-        response = make_request("#{resource_name}/#{id}")
+        response = Request.get("#{resource_name}/#{id}")
 
         parse_response_collection(response).first
       end
@@ -45,13 +45,6 @@ module StackExchangeQnA
         self.name.demodulize.underscore
       end
 
-      def make_request(end_point, options={})
-        client = StackExchangeQnA.client
-        options.merge!(:key => client.api_key)
-
-        HTTParty.get("http://#{client.site}/#{StackExchangeQnA::Client::API_VERSION}/#{end_point}", :query => options)
-      end
-
       private
 
       def parse_response_collection(response)
@@ -63,7 +56,7 @@ module StackExchangeQnA
       return super unless respond_to? association_url(method_name)
 
       association_class = "StackExchangeQnA::#{method_name.to_s.classify}".constantize
-      response = self.class.make_request(self.send(association_url(method_name)))
+      response = Request.get(self.send(association_url(method_name)))
       self[method_name] = response[method_name.to_s].map{ |r| association_class.new(r) }
     end
 
